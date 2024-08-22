@@ -29,6 +29,16 @@ app.post("/books", (req, res) => {
   books.push(newBook);
   res.status(201).json(newBook);
 });
+// New Route: Get a single book by ID
+app.get("/books/:id", (req, res) => {
+  const bookId = parseInt(req.params.id);
+  const book = books.find((b) => b.id === bookId);
+  if (book) {
+    res.json(book);
+  } else {
+    res.status(404).send("Book not found");
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
