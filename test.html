@@ -8,14 +8,19 @@
   <body>
     <h1>Express JS Test Rest API</h1>
     <p>
-      This is a simple REST API using Express JS, Node.js, and MongoDB. You can test the endpoints using the provided JavaScript file.
+      This is a simple REST API using Express JS, Node.js, and MongoDB. You can
+      test the endpoints using the provided JavaScript file.
     </p>
     <ul>
-      <li><a href="books">GET books</a> - Get all products</li>
-      <li><a href="books/add">POST books/add</a> - Add a new product</li>
-      <li><a href="books/:id">GET books/:id</a> - Get a product by ID</li>
-      <li><a href="books/:id/update">PUT books/:id/update</a> - Update a product by ID</li>
-      <li><a href="books/:id/delete">DELETE books/:
+      <li><a href="/books">GET books</a> - Get all products</li>
+    </ul>
+
+    <form action="/books/add" method="post">
+      <input type="text" name="title" placeholder="Title" required />
+      <input type="text" name="author" placeholder="Author" required />
+      <input type="number" name="publicationYear" placeholder="Year" required />
+      <button type="submit">Add Book</button>
+    </form>
   </body>
   <script src="test.js"></script>
 </html>
