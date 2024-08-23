@@ -19,13 +19,11 @@ app.get("/books", (req, res) => {
   res.json(books);
 });
 
-// Variable to keep track of the last ID used
-let lastId = books.length ? books[books.length - 1].id : 0;
-
 // New Route: Add a new book
 app.post("/books", (req, res) => {
+  const maxId = books.reduce((max, book) => (book.id > max ? book.id : max), 0);
   const newBook = {
-    id: ++lastId,
+    id: maxId + 1,
     title: req.body.title,
     author: req.body.author,
   };
